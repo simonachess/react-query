@@ -5,8 +5,6 @@ import axios from 'axios';
 import { useQuery } from 'react-query'
 import ButtonFetchData from './components/ButtonFetchData';
 
-
-
 function App() {
 
   async function fetchData() {
@@ -22,10 +20,11 @@ function App() {
 
   if (error) return 'An error has occurred: ' + error.message
 
+
   return (
     <main>
       {!isLoading && <div>  {data.map((item) => <Category index={item.id} title={item.name} subcategories={item.categories} key={item.id} parentLength={item.categories.length} />)}
-        <ButtonFetchData fetchData={fetchData} />
+        <ButtonFetchData />
       </div>}
     </main>
   );
